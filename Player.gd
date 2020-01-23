@@ -17,6 +17,8 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		position.y -= 0.01 * velocidad
 	
+	
+#	Este código haría que el personaje tenga la animacion que toca	
 #	movimiento = Vector2()
 #
 #	if Input.is_action_pressed("ui_right"):
