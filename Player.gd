@@ -10,7 +10,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		position.x += 0.01 * velocidad
+		$AnimatedSprite.animation = "derecha"
 	if Input.is_action_pressed("ui_left"):
+		$AnimatedSprite.animation = "izquierda"
 		position.x -= 0.01 * velocidad
 	if Input.is_action_pressed("ui_down"):
 		position.y += 0.01 * velocidad
@@ -37,7 +39,7 @@ func _process(delta):
 #	position.y = clamp(position.y, 0, limite.y)
 #
 #	if movimiento.x > 0:
-#		$Sprite_player.animation = "derecha"
+#		$AnimatedSprite.animation = "derecha"
 #	if movimiento.x < 0:
-#		$Sprite_player.animation = "izquierda"
+#		$AnimatedSprite.animation = "izquierda"
 	
