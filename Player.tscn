@@ -1,40 +1,56 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://flatboy/izquierda(1).png" type="Texture" id=2]
-[ext_resource path="res://flatboy/izquierda(2).png" type="Texture" id=3]
-[ext_resource path="res://flatboy/derecha(1).png" type="Texture" id=4]
-[ext_resource path="res://flatboy/derecha(2).png" type="Texture" id=5]
+[ext_resource path="res://flatboy/derecha(1).png" type="Texture" id=2]
+[ext_resource path="res://flatboy/derecha(2).png" type="Texture" id=3]
+[ext_resource path="res://flatboy/izquierda(1).png" type="Texture" id=4]
+[ext_resource path="res://flatboy/izquierda(2).png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "izquierda",
+"name": "derecha",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "derecha",
+"name": "izquierda",
 "speed": 15.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 145.055
-height = 211.308
+radius = 58.1048
+height = 88.7198
 
-[node name="Player" type="Area2D"]
-position = Vector2( 306.587, 369.82 )
-scale = Vector2( 0.2, 0.2 )
+[node name="main" type="Node"]
+
+[node name="nivel" type="Node" parent="."]
+
+[node name="player" type="Area2D" parent="nivel"]
+position = Vector2( 340.86, 473.332 )
 script = ExtResource( 1 )
-velocidad = 500
+__meta__ = {
+"_edit_group_": true
+}
+velocidad = 300
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -328.705, -1.948 )
-scale = Vector2( 1.01915, 1.03128 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="nivel/player"]
+position = Vector2( 1.61523, -1.00989 )
+scale = Vector2( 0.399319, 0.389884 )
 frames = SubResource( 1 )
 animation = "derecha"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -321.416, -19.8058 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nivel/player"]
+position = Vector2( 1.34943, -5.98126 )
 shape = SubResource( 2 )
+
+[node name="min" type="Position2D" parent="nivel" groups=[
+"min",
+]]
+position = Vector2( 59.3298, 111.902 )
+
+[node name="max" type="Position2D" parent="nivel" groups=[
+"max",
+]]
+position = Vector2( 581.2, 855.458 )
